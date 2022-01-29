@@ -12,6 +12,7 @@ let initRota = 'InitiApp';
 
 //Barra de GoBack
 const stackNav = createStackNavigator({
+    InitiApp
 //   MenuInicial,
 //   Formulario
 });
