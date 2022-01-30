@@ -1,80 +1,64 @@
-import React, { Component } from 'react';
+import React from 'react';
 import {
   View,
-  Modal,
-  Text,
-  ActivityIndicator
+  Image,
+  TouchableWithoutFeedback
 } from 'react-native';
 
-import styles from '../styles/Loader.style'
-const card1 = 'https://i.pinimg.com/736x/b6/76/3b/b6763baee8b2b944b3287147c7d26c55.jpg';
-const card2 = 'https://i.pinimg.com/736x/dc/79/08/dc790805ea23fbf33283d488b2c847ce--card-games-copycat.jpg"';
-const card3 = 'https://images-na.ssl-images-amazon.com/images/I/51U3Ky9-N4L.jpg';
+import styles from '../styles/Card.style'
+const card_teste__small = require('../assets/cards_exemplos/small/6983839.jpg');
+const card_teste = require('../assets/cards_exemplos/6983839.jpg');
 
+const Card = props => {
+    const {
+        card_url_small,
+        ...attributes
+    } = props;
 
-const Loader = props => {
-  const {
-    loading,
-    message,
-    ...attributes
-  } = props;
+    //time double click
+    let backCount = 0;
+    let backTimer = 0;
 
-  return (
-    <Modal
-      transparent={true}
-      animationType={'none'}
-      visible={loading}
-      >
-      <View style={styles.container}>
-        <View style={styles.card}>
-            <View style={styles.front}></View>
-            <View style={styles.back}>
+    return (
+        <View
+            >
+            <TouchableWithoutFeedback
+                style={{ position: 'absolute', left: 0, padding: 20, backgroundColor:'green' }}
+                onPress={() => {
+                        backCount++
+                        if (backCount == 2) {
+                            clearTimeout(backTimer)
+                            console.warn("Clicked twice")
+                        } else {
+                            backTimer = setTimeout(() => {
+                                backCount = 0
+                            }, 3000)
+                            console.warn("Clicked one")
+                        }
+                    }}
+            >
                 <Image
                     resizeMode="contain"
-                    
-                    source={{
-                        uri: card1,
+                    style={{
+                        width:84,
+                        height:123,
+                        marginHorizontal: 3,
+                        borderRadius: 150 / 2,
+                        overflow: "hidden",
+                        borderWidth: 3,
+                        borderColor: "red"
                     }}
-                    width={250}
+                    // source={{
+                    //     uri: card_url_small,
+                    // }}
+                    source={card_teste__small}
                 />
-            </View>
-        </View>
-        </View>
 
-        <View style={styles.container}>
-        <View style={styles.card}>
-            <View style={styles.front}></View>
-            <View style={styles.back}>
-            <Image
-                resizeMode="contain"
-                
-                source={{
-                    uri: card2,
-                }}
-                width={250}
-            />            
-            </View>
-        </View>
-        </View>
+            </TouchableWithoutFeedback>
 
-        <View style={styles.container}>
-        <View style={styles.card}>
-            <View style={styles.front}></View>
-            <View style={styles.back}>
-                <Image
-                    resizeMode="contain"
-                    
-                    source={{
-                        uri: card3,
-                    }}
-                    width={250}
-                />
-            </View>
+            
         </View>
-        </View>
-
-    </Modal>
-  )
+    )
 }
 
-export default Loader;
+export default Card;

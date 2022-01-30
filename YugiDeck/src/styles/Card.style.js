@@ -1,14 +1,14 @@
 export default {
     body: {
         // backgroundCcolor: '#483a2e';
-        display: flex,
-        justifyContent: spaceAround,
-        boxSizing: borderBox,
+        // display: flex,
+        // justifyContent: spaceAround,
+        // boxSizing: borderBox,
         padding: '2em',
     },
     container: {
-        width: '328px',
-        height: '480px',
+        // width: '328px',
+        // height: '480px',
         // -webkit-perspective: 1500;
     },
 
@@ -38,7 +38,7 @@ export default {
 
     front: {
         zIndex: 2,
-        overflow: hidden,
+        // overflow: hidden,
     },
 
     back: {
