@@ -10,10 +10,9 @@ import CardInfor from '../components/CardInfor';
 const createRows = (data, columns) => {
   const rows = Math.floor(data.length / columns);
   let lastRowElements = data.length - rows * columns;
-
   while (lastRowElements !== columns) {
     data.push({
-      id: `empty-${lastRowElements}`,
+      id: `empty-${lastRowElements}${Math.random()}`,
       name: `empty-${lastRowElements}`,
       empty: true
     });

@@ -1,15 +1,17 @@
-import React, {Component} from 'react';
+import React, { Component } from "react";
 import {
   View,
-} from 'react-native';
+} from "react-native";
+
 import styles from '../styles/Main.syle';
 import ListCards from '../components/ListCards';
+import ButtonFloating from '../components/ButtonFloating';
 
 export default class InitiApp extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      region: false,
+      visibleBtn: false,
       listaDeCartas: [
         // card 1
         {
@@ -149,6 +151,11 @@ export default class InitiApp extends Component {
         this.state.listaDeCartasSelecionadas.splice(index, 1); 
       }else{
         this.state.listaDeCartasSelecionadas.push(id);
+        this.setState({visibleBtn: true});
+      }
+
+      if(this.state.listaDeCartasSelecionadas.length == 0){
+        this.setState({visibleBtn: false});
       }
       
       this.setState({
@@ -164,18 +171,19 @@ export default class InitiApp extends Component {
 
   render() {
     return (
-      <View style={styles.container}>
-        {/* <Card loading={true} message="Carregando" /> */}
-        <ListCards
-          card_data={this.state.listaDeCartas}
-          card_columns={3}
-          selectCard={this.selectCard.bind(this)}
-          selectCardInformation={this.selectCardInformation.bind(this)}
-        />
 
-        
-        {/* <Text style={styles.currentStepText}> Texto </Text> */}
-      </View>
+        <View style={styles.contentContainer}>
+          {/* <Card loading={true} message="Carregando" /> */}
+          <ListCards
+            card_data={this.state.listaDeCartas}
+            card_columns={3}
+            selectCard={this.selectCard.bind(this)}
+            selectCardInformation={this.selectCardInformation.bind(this)}
+          />          
+          {/* <Text style={styles.currentStepText}> Texto </Text> */}
+          <ButtonFloating visibleBtn={this.state.visibleBtn}/>
+        </View>
+
     );
   }
 }
