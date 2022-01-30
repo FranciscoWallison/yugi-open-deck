@@ -4,54 +4,51 @@ import {
   Image,
   TouchableWithoutFeedback
 } from 'react-native';
-
 import styles from '../styles/Card.style'
-const card_teste__small = require('../assets/cards_exemplos/small/6983839.jpg');
-const card_teste = require('../assets/cards_exemplos/6983839.jpg');
 
-const Card = props => {
+const CardInfor = props => {
     const {
-        card_url_small,
+        card_information,
+        selectCard,
+        selectCardInformation,
         ...attributes
     } = props;
 
     //time double click
     let backCount = 0;
     let backTimer = 0;
+    let validIsSelect = selectCard(null).indexOf(card_information.id);
+    let sourceImage =  card_information.id == 23771716
+        ? require("../assets/cards_exemplos/small/23771716.jpg") 
+        : require("../assets/cards_exemplos/small/6983839.jpg") 
 
     return (
         <View
             >
             <TouchableWithoutFeedback
-                style={{ position: 'absolute', left: 0, padding: 20, backgroundColor:'green' }}
+                style={styles.eventClick}
                 onPress={() => {
                         backCount++
                         if (backCount == 2) {
                             clearTimeout(backTimer)
-                            console.warn("Clicked twice")
+                            console.log("Clicked twice")
+                            selectCardInformation(card_information);
+                            
                         } else {
                             backTimer = setTimeout(() => {
                                 backCount = 0
                             }, 3000)
-                            console.warn("Clicked one")
+                            selectCard(card_information)
                         }
                     }}
             >
                 <Image
                     resizeMode="contain"
-                    style={{
-                        width:84,
-                        height:123,
-                        marginHorizontal: 3,
-                        borderRadius: 150 / 2,
-                        overflow: "hidden",
-                        borderWidth: 3,
-                        borderColor: "red"
-                    }}
+                    style={ validIsSelect === -1 ? styles.cardOffSelect : styles.cardOnSelect }
                     // source={{
-                    //     uri: card_url_small,
+                    //     uri: card_information.card_images[0].image_url_small ,
                     // }}
-                    source={card_teste__small}
+                    source={sourceImage}
                 />
 
             </TouchableWithoutFeedback>
@@ -61,4 +58,4 @@ const Card = props => {
     )
 }
 
-export default Card;
+export default CardInfor;

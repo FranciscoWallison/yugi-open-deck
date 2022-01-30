@@ -1,48 +1,22 @@
 export default {
-    body: {
-        // backgroundCcolor: '#483a2e';
-        // display: flex,
-        // justifyContent: spaceAround,
-        // boxSizing: borderBox,
-        padding: '2em',
+    eventClick: {
+       position: 'absolute',
+       left: 0,
+       padding: 20,
+       backgroundColor:'green'
     },
-    container: {
-        // width: '328px',
-        // height: '480px',
-        // -webkit-perspective: 1500;
+    cardOnSelect: {
+        width:84,
+        height:123,
+        marginHorizontal: 3,
+        borderRadius: 10 / 2,
+        overflow: "hidden",
+        borderWidth: 3,
+        borderColor: "red"
     },
-
-    // .container:hover .card{
-    // -webkit-transform: rotateY(180deg);
-    // }
-
-    // .card, .front, .back{
-    //     width: 100%;
-    //     height: 100%;
-    //     border-radius: 5px;
-    // }
-
-    // .card{
-    //     position: relative;
-    //     -webkit-transition: transform 1.5s;
-    //     -webkit-transform-style: preserve-3d;
-    //     background-image: url('https://vignette.wikia.nocookie.net/yugioh/images/9/95/SlifertheSkyDragon-GBI-AE-Back.png/revision/latest/scale-to-width-down/328?cb=2010072608370');
-    // }
-
-    // .front, .back{
-    //     position: absolute;
-    //     top: 0;
-    //     left: 0;
-    //     -webkit-backface-visibility: hidden;
-    // },
-
-    front: {
-        zIndex: 2,
-        // overflow: hidden,
-    },
-
-    back: {
-        // -webkit-transform: rotateY(180deg);
+    cardOffSelect: {
+        width:84,
+        height:123,
     }
 
 }

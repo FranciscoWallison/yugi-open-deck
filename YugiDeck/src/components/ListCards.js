@@ -5,30 +5,32 @@ import {
   View
 } from "react-native";
 import styles from '../styles/ListCards.style'
-import Card from '../components/Card';
+import CardInfor from '../components/CardInfor';
 
- const createRows = (data, columns) => {
-    const rows = Math.floor(data.length / columns);
-    let lastRowElements = data.length - rows * columns;
+const createRows = (data, columns) => {
+  const rows = Math.floor(data.length / columns);
+  let lastRowElements = data.length - rows * columns;
 
-    while (lastRowElements !== columns) {
-      data.push({
-        id: `empty-${lastRowElements}`,
-        name: `empty-${lastRowElements}`,
-        empty: true
-      });
-      lastRowElements += 1;
-    }
-
-    return data;
+  while (lastRowElements !== columns) {
+    data.push({
+      id: `empty-${lastRowElements}`,
+      name: `empty-${lastRowElements}`,
+      empty: true
+    });
+    lastRowElements += 1;
   }
+  return data;
+}
 
 const ListCards  = props => {
   const {
     card_data,
     card_columns,
+    selectCard,
+    selectCardInformation,
     ...attributes
   } = props;
+  
   return (
     <SafeAreaView>
       <FlatList
@@ -36,12 +38,16 @@ const ListCards  = props => {
         keyExtractor={item => item.id}
         numColumns={card_columns}
         renderItem={({ item }) => {
-          if (item.empty) {
+          if (typeof item.id != 'number') {
             return <View style={[styles.item, styles.itemEmpty]} />;
           }
           return (
             <View style={styles.item}>
-              <Card  card_url_small={item.card_images[0].image_url_small} />
+              <CardInfor
+                selectCard={selectCard.bind(this)}
+                selectCardInformation={selectCardInformation.bind(this)}                
+                card_information={item}                
+              />
             </View>
           );
         }}
