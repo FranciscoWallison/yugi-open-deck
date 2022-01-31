@@ -7,17 +7,22 @@ const ButtonFloating = props => {
 
   const {
     visibleBtn,
+    favoriteCard,
     ...attributes
   } = props;
 
-  const FloatingButtonEvent=()=>{
-    console.log("Floating Button Clicked");
-  }
 
   if (visibleBtn) {
     return (
       <View style={styles.container}>
-        <TouchableOpacity activeOpacity={0.5} onPress={FloatingButtonEvent} style={styles.TouchableOpacityStyle} >
+        <TouchableOpacity
+          activeOpacity={0.5}
+          onPress={() => {
+            console.log('favoriteCard')
+            favoriteCard()
+          }}
+          style={styles.TouchableOpacityStyle}
+        >
           <Image source={require('../assets/uteis/favorite_black.png')}  style={styles.FloatingButtonStyle} />
         </TouchableOpacity>
       </View>     

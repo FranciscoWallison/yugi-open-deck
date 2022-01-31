@@ -5,7 +5,7 @@ import {
   View
 } from "react-native";
 import styles from '../styles/ListCards.style'
-import CardInfor from '../components/CardInfor';
+import GetCard from '../components/GetCard';
 
 const createRows = (data, columns) => {
   const rows = Math.floor(data.length / columns);
@@ -42,7 +42,7 @@ const ListCards  = props => {
           }
           return (
             <View style={styles.item}>
-              <CardInfor
+              <GetCard
                 selectCard={selectCard.bind(this)}
                 selectCardInformation={selectCardInformation.bind(this)}                
                 card_information={item}                

@@ -6,6 +6,8 @@ import {
 import styles from '../styles/Main.syle';
 import ListCards from '../components/ListCards';
 import ButtonFloating from '../components/ButtonFloating';
+import InforCard from '../components/InforCard';
+
 
 export default class InitiApp extends Component {
   constructor(props) {
@@ -137,7 +139,8 @@ export default class InitiApp extends Component {
           ]
         }
       ],
-      listaDeCartasSelecionadas: [] 
+      listaDeCartasSelecionadas: [],
+      listaDeCartasSelecionadasFavoritas: []
     };
   }
 
@@ -145,12 +148,12 @@ export default class InitiApp extends Component {
     if(e != null){
       let id = e.id;
       // add to list
-      const index = this.state.listaDeCartasSelecionadas.indexOf(id);
+      const index = this.state.listaDeCartasSelecionadas.findIndex(x => x.id === id); 
 
       if (index > -1) {
         this.state.listaDeCartasSelecionadas.splice(index, 1); 
       }else{
-        this.state.listaDeCartasSelecionadas.push(id);
+        this.state.listaDeCartasSelecionadas.push(e);
         this.setState({visibleBtn: true});
       }
 
@@ -169,6 +172,34 @@ export default class InitiApp extends Component {
     console.warn('inits-selectCard',e);
   }
 
+  favoriteCard = () => {
+    if(this.state.listaDeCartasSelecionadas.length  > 0){
+      console.log('inits-favoriteCard', this.state.listaDeCartasSelecionadas.length );
+
+    //   if(e != null){
+    //     let id = e.id;
+    //     // add to list
+    //     const index = this.state.listaDeCartasSelecionadas.findIndex(x => x.id === id); 
+
+    //     if (index > -1) {
+    //       this.state.listaDeCartasSelecionadas.splice(index, 1); 
+    //     }else{
+    //       this.state.listaDeCartasSelecionadas.push(e);
+    //       this.setState({visibleBtn: true});
+    //     }
+
+    //     if(this.state.listaDeCartasSelecionadas.length == 0){
+    //       this.setState({visibleBtn: false});
+    //     }
+        
+    //     this.setState({
+    //       listaDeCartasSelecionadas: this.state.listaDeCartasSelecionadas
+    //     })    
+    //   }
+    }
+  //  return this.state.listaDeCartasSelecionadas;
+  }
+
   render() {
     return (
 
@@ -180,8 +211,8 @@ export default class InitiApp extends Component {
             selectCard={this.selectCard.bind(this)}
             selectCardInformation={this.selectCardInformation.bind(this)}
           />          
-          {/* <Text style={styles.currentStepText}> Texto </Text> */}
-          <ButtonFloating visibleBtn={this.state.visibleBtn}/>
+          {/* <ButtonFloating visibleBtn={this.state.visibleBtn} favoriteCard={this.favoriteCard.bind(this)} /> */}
+          <InforCard />
         </View>
 
     );

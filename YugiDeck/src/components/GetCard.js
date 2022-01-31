@@ -6,7 +6,7 @@ import {
 } from 'react-native';
 import styles from '../styles/Card.style'
 
-const CardInfor = props => {
+const GetCard = props => {
     const {
         card_information,
         selectCard,
@@ -17,7 +17,7 @@ const CardInfor = props => {
     //time double click
     let backCount = 0;
     let backTimer = 0;
-    let validIsSelect = selectCard(null).indexOf(card_information.id);
+    let validIsSelect = selectCard(null).findIndex(x => x.id === card_information.id);
     let sourceImage =  card_information.id == 23771716
         ? require("../assets/cards_exemplos/small/23771716.jpg") 
         : require("../assets/cards_exemplos/small/6983839.jpg") 
@@ -58,4 +58,4 @@ const CardInfor = props => {
     )
 }
 
-export default CardInfor;
+export default GetCard;

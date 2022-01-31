@@ -9,10 +9,10 @@ export default {
         width:84,
         height:123,
         marginHorizontal: 3,
-        borderRadius: 10 / 2,
+        borderRadius: 13 / 2,
         overflow: "hidden",
         borderWidth: 3,
-        borderColor: "red"
+        borderColor: "#00a884"
     },
     cardOffSelect: {
         width:84,
