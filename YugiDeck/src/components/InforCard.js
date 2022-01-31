@@ -8,7 +8,10 @@ import {
 
 const InforCard = () => {
   return (
-    <Modal >
+    <Modal
+      transparent={true}
+      animationType={'none'}
+      visible={true}>
         <View style={styles.container}>
             <View style={{ flex: 1, backgroundColor: "red" }} />
             <View style={{ flex: 2, backgroundColor: "darkorange" }} />

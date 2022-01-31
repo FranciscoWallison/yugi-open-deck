@@ -6,7 +6,6 @@ import {
 import styles from '../styles/Main.syle';
 import ListCards from '../components/ListCards';
 import ButtonFloating from '../components/ButtonFloating';
-import InforCard from '../components/InforCard';
 
 
 export default class InitiApp extends Component {
@@ -212,7 +211,6 @@ export default class InitiApp extends Component {
             selectCardInformation={this.selectCardInformation.bind(this)}
           />          
           {/* <ButtonFloating visibleBtn={this.state.visibleBtn} favoriteCard={this.favoriteCard.bind(this)} /> */}
-          <InforCard />
         </View>
 
     );

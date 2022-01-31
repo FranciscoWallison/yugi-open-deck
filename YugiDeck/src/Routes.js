@@ -7,12 +7,15 @@ import {createDrawerNavigator} from 'react-navigation-drawer';
 // import MenuInicial from './pages/MenuScreen';
 
 import InitiApp from './pages/InitiApp';
+import CardInformation from './pages/CardInformation';
 
-let initRota = 'InitiApp';
+
+let initRota = 'CardInformation';
 
 //Barra de GoBack
 const stackNav = createStackNavigator({
-    InitiApp
+    InitiApp,
+    CardInformation
 //   MenuInicial,
 //   Formulario
 });
@@ -20,7 +23,7 @@ const stackNav = createStackNavigator({
 export default (Routes = createAppContainer(
   createSwitchNavigator(
     {
-    //   Login: Login,
+      CardInformation: CardInformation,
       InitiApp: InitiApp,
     //   Menu: MenuInicial,
     //   Formulario: Formulario,
