@@ -5,7 +5,8 @@ import {
     Dimensions,
     StyleSheet,
     Image,
-    ScrollView
+    ScrollView,
+    StatusBar 
 } from 'react-native';
 import { SvgUri } from 'react-native-svg';
 
@@ -209,7 +210,10 @@ export default class CardInformation extends PureComponent {
 
     render() {
         return (
-        <View style={styles.container}>      
+        <View style={styles.container}>
+
+        
+
           <View style={{ flex: 3 }} >
                 <Image
                     resizeMode="contain"
@@ -222,25 +226,51 @@ export default class CardInformation extends PureComponent {
           </View>
           <View style={{ flex: 4 }} >
             <View style={styles.container_information}>
-                <View style={{ flex: 3, backgroundColor: "green", }} >
-                   <ScrollView 
-                     style={{ransform: [{ rotate: '90deg' }], }}
-                   
-    //                   contentContainerStyle={{
+                <View style={{ flex: 3, backgroundColor: "green", flexDirection: 'column',  marginRight:'1%', marginLeft: '-1%' }} >
+                    <View style={{ backgroundColor: "orange",   flex: 1 }} >
 
-    //                        alignItems: "center",
-    // paddingBottom: 60
-    //                   }}
+
+                <View style={{ flexDirection: 'column',   }}  > 
+                  
+                       <View style={{  }}  /> 
+                   <ScrollView
+  
+                     style={{transform: [{ rotate: '90deg' }],  marginHorizontal: '-50%', }}
+                   
                      >
                     
-                
-                        <Text style={{ fontSize: 15, }}>Scroll me plzScroll me plzScroll me 
-                        plzScroll me plzScroll me plzScroll me plzScroll me plzScroll me plzScroll 
-                        me plzScroll me plzScroll me plzScroll me plzScroll me plzScroll me plzScroll me plzScroll me plzScroll me plzScroll me plzScroll me plzScroll me plzScroll me plzScroll me plzScroll me plzScroll me plzScroll me plzScroll me plzScroll me plzScroll me plzScroll me plzScroll me plzScroll me plzScroll me plzScroll me plzScroll me plzScroll me plzScroll me plzScroll me plzScroll me plzScroll me plzScroll me plzScroll me plzScroll me plzScroll me plzScroll me plzScroll me plzScroll me plzScroll me plzScroll me plzScroll me plzScroll me plzScroll me plzScroll me plzScroll me plzScroll me plzScroll me plzScroll me plzScroll me plz</Text>
+                        
+                        <Text style={{flex: 1, fontSize: 15, marginTop: '30%', marginBottom: '60%', }}>
+                            {this.state.cardInfor.desc}
+                            asdasdasdasdasdadn abskdj anskljdn ajksnd jkasnd kjan
+                            asdasdasdasdasdadn abskdj anskljdn ajksnd jkasnd kjan
+                            asdasdasdasdasdadn abskdj anskljdn ajksnd jkasnd kjan
+                            asdasdasdasdasdadn abskdj anskljdn ajksnd jkasnd kjan
+                            asdasdasdasdasdadn abskdj anskljdn ajksnd jkasnd kjan
+                            asdasdasdasdasdadn abskdj anskljdn ajksnd jkasnd kjan
+                            asdasdasdasdasdadn abskdj anskljdn ajksnd jkasnd kjan
+                            asdasdasdasdasdadn abskdj anskljdn ajksnd jkasnd kjan
+                            asdasdasdasdasdadn abskdj anskljdn ajksnd jkasnd kjan
+                            asdasdasdasdasdadn abskdj anskljdn ajksnd jkasnd kjan
+
+                            asdasdasdasdasdadn abskdj anskljdn ajksnd jkasnd kjan
+                            asdasdasdasdasdadn abskdj anskljdn ajksnd jkasnd kjan
+                            asdasdasdasdasdadn abskdj anskljdn ajksnd jkasnd kjan
+                            asdasdasdasdasdadn abskdj anskljdn ajksnd jkasnd kjan
+
+                            asdasdasdasdasdadn abskdj anskljdn ajksnd jkasnd kjan
+                            asdasdasdasdasdadn abskdj anskljdn ajksnd jkasnd kjan
+                            111111111111111111
+                        </Text>
 
               
                 </ScrollView>
+                
                 </View>
+            </View>
+                
+                </View>
+
                 <View style={{ flex: 2, backgroundColor: "darkorange" }} >
                     {this.typeCardLoad()}
                 </View>
@@ -268,17 +298,7 @@ export default class CardInformation extends PureComponent {
     }// end of render
 
     componentDidMount() {
-
-        if ((deviceScreenWidth < deviceScreenHeight || screen.width < screen.height)) {
-            Orientation.lockToPortrait();
-        } else {
-            
-            Orientation.lockToLandscape();
-        }
-
-        // this unlocks any previous locks to all Orientations
-        // Orientation.unlockAllOrientations();
-
+        Orientation.lockToPortrait();
         Orientation.addOrientationListener(this._orientationDidChange);
     }
 
@@ -297,15 +317,7 @@ const styles = StyleSheet.create({
         flex: 1,
         flexDirection: 'column',
         backgroundColor: "#343461",
-        // position: 'absolute',
-        // bottom: 0,
-        // width: screenWidth,
-        // height: 60
-
-        // alignItems: "center", // ignore this - we'll come back to it
-        // justifyContent: "center", // ignore this - we'll come back to it
-        // flexDirection: "column"
-        // justifyContent: 'space-between'
+        // transform: [{ rotate: '90deg' }]
     },
     container_information:{
         flex: 1,
@@ -315,8 +327,8 @@ const styles = StyleSheet.create({
     card: {
         width:430,
         height: 300,
-        transform: [{ rotate: '90deg' }],
         // margin: '5%'
+        transform: [{ rotate: '90deg' }]
     },
     cardAttribute:{
         width:20,
