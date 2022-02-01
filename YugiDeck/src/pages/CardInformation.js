@@ -5,6 +5,7 @@ import {
     Dimensions,
     StyleSheet,
     Image,
+    ScrollView
 } from 'react-native';
 import { SvgUri } from 'react-native-svg';
 
@@ -106,19 +107,64 @@ export default class CardInformation extends PureComponent {
     typeCardLoad = () => {
         this.state.cardInfor;
 
-        switch (key) {
-            case value:
-                
+        switch (this.state.cardInfor.type) {
+            case "Normal Monster":
+                return (
+                        <View style={[, {
+                                flexDirection: "row",
+                                flex: 1,
+                            }]}>
+                                <View style={styles.box_desc_card} >
+                                    <View style={styles.image_container_atk_def} >
+                                        <Image
+                                            style={styles.cardAtkbute}
+                                            source={require("../assets/atk.png")}
+                                        />
+                                        <Text style={styles.text_desc_card_atk} >
+                                            {this.state.cardInfor.atk}
+                                        </Text>
+                                    </View>
+
+                                    <View style={styles.image_container_atk_def} >
+                                        <Image
+                                            style={styles.cardAtkbute}
+                                            source={require("../assets/def.png")}
+                                        />
+                                        <Text style={styles.text_desc_card_atk} >
+                                            {this.state.cardInfor.def}
+                                        </Text>
+                                    </View>                                        
+                                </View>
+                                <View style={{ flex: 3, backgroundColor: "blu",flexDirection: "column" }} >
+                                    <View style={styles.image_container_atk_def} >
+                                        <Image
+                                            style={styles.cardAtkbute_star}
+                                            source={require("../assets/star.png")}
+                                        />
+                                        <Text style={styles.text_desc_card_atk} >
+                                            {this.state.cardInfor.level}
+                                        </Text>
+                                    </View>
+                                </View>
+                        </View>
+                    )
                 break;
         
             default:
+                    return (
+                            <View style={[, {
+                            // Try setting `flexDirection` to `"row"`.
+                                flexDirection: "row",
+                                flex: 1,
+                                // padding: 20,
+                            }]}>
+                                <View style={{ flex: 3, backgroundColor: "red" }} />
+                                <View style={{ flex: 3, backgroundColor: "green" }} />
+                            </View>
+                    )
                 break;
         }
-        return (
-            <View>
-
-            </View>
-        )
+        
     }
 
     loadAttribute = (attribute) =>  {
@@ -176,7 +222,25 @@ export default class CardInformation extends PureComponent {
           </View>
           <View style={{ flex: 4 }} >
             <View style={styles.container_information}>
-             <View style={{ flex: 3, backgroundColor: "green" }} />
+                <View style={{ flex: 3, backgroundColor: "green", }} >
+                   <ScrollView 
+                     style={{ransform: [{ rotate: '90deg' }], }}
+                   
+    //                   contentContainerStyle={{
+
+    //                        alignItems: "center",
+    // paddingBottom: 60
+    //                   }}
+                     >
+                    
+                
+                        <Text style={{ fontSize: 15, }}>Scroll me plzScroll me plzScroll me 
+                        plzScroll me plzScroll me plzScroll me plzScroll me plzScroll me plzScroll 
+                        me plzScroll me plzScroll me plzScroll me plzScroll me plzScroll me plzScroll me plzScroll me plzScroll me plzScroll me plzScroll me plzScroll me plzScroll me plzScroll me plzScroll me plzScroll me plzScroll me plzScroll me plzScroll me plzScroll me plzScroll me plzScroll me plzScroll me plzScroll me plzScroll me plzScroll me plzScroll me plzScroll me plzScroll me plzScroll me plzScroll me plzScroll me plzScroll me plzScroll me plzScroll me plzScroll me plzScroll me plzScroll me plzScroll me plzScroll me plzScroll me plzScroll me plzScroll me plzScroll me plzScroll me plzScroll me plzScroll me plzScroll me plzScroll me plz</Text>
+
+              
+                </ScrollView>
+                </View>
                 <View style={{ flex: 2, backgroundColor: "darkorange" }} >
                     {this.typeCardLoad()}
                 </View>
@@ -188,19 +252,7 @@ export default class CardInformation extends PureComponent {
                         </Text>
                     </View>
 
-
-                    <View style={
-                        {
-                            flex: 1,
-                            height: 70,
-                            width: 70,
-                            borderRadius: 5,
-                            marginVertical: 40,
-                            alignItems: "center",
-                            justifyContent: "center",
-                            transform: [{ scale: 2 }]
-                        }
-                    } >
+                    <View style={styles.image_container_att} >
                           <Image
                                 resizeMode="contain"
                                 style={styles.cardAttribute}
@@ -208,9 +260,6 @@ export default class CardInformation extends PureComponent {
                             />
                     </View>
                 </View>
-
-               
-                
             </View>
           </View>
           {/* <View style={{ flex: 1 }} /> */}
@@ -219,8 +268,6 @@ export default class CardInformation extends PureComponent {
     }// end of render
 
     componentDidMount() {
-
-        console.log(deviceScreenWidth,deviceScreenHeight, screen)
 
         if ((deviceScreenWidth < deviceScreenHeight || screen.width < screen.height)) {
             Orientation.lockToPortrait();
@@ -236,7 +283,6 @@ export default class CardInformation extends PureComponent {
     }
 
     _orientationDidChange = (orientation) => {
-        console.log('_orientationDidChange')
         if (orientation === 'LANDSCAPE') {
             // do something with landscape layout
         } else {
@@ -273,30 +319,85 @@ const styles = StyleSheet.create({
         // margin: '5%'
     },
     cardAttribute:{
-        width:25,
-        height: 25,
+        width:20,
+        height: 20,
         transform: [{ rotate: '90deg' }],
-        
-
     },
     box: {
         flex: 4,
         height: 100,
         width: 100,
+        // borderRadius: 5,
+        marginVertical: 100,
+        // alignItems: "center",
+        // justifyContent: "center",
+        transform: [{ scale: 2 }],
+        
+    },
+    box_desc_card: {
+        // marginVertical: 2,
+        // // flex: 4,
+        // alignItems: "stretch",
+        // transform: [{ scale: 2 }],
+        // flexDirection: 'column',
+        //   backgroundColor: 'black'
+
+        flex: 3, backgroundColor: "red", flexDirection: "column", 
+    },
+    text_desc_card_atk: {
+        fontSize: 20,
+        transform: [{ rotate: '90deg' }],
+        marginTop: '20%',
+        // flex: 3,
+        // backgroundColor: 'black'
+        // marginTop: '20%'
+    },
+    text_desc_card_def: {
+        fontSize: 20,
+        transform: [{ rotate: '90deg' }],
+        marginTop: '20%',
+    },
+    text: {
+        fontSize: 10,
+        // flex: 1,
+        fontWeight: "bold",
+        margin: '5%',
+        color: "#000",
+        textAlign: "center",
+        transform: [{ rotate: '90deg' }],
+        marginRight: '20%'
+    },
+    image_container_att:{
+        flex: 1,
+        // height: 70,
+        // width: 70,
         borderRadius: 5,
         marginVertical: 40,
         alignItems: "center",
         justifyContent: "center",
         transform: [{ scale: 2 }]
-  },
-  text: {
-    fontSize: 10,
-    // flex: 1,
-    fontWeight: "bold",
-    margin: '5%',
-    color: "#000",
-    textAlign: "center",
-    transform: [{ rotate: '90deg' }],
-    marginRight: '20%'
-  }
+    },
+    image_container_atk_def:{
+        // flex: 1,
+        // height: 30,
+        // width: 30,
+        // borderRadius: 5,
+        // marginVertical: 40,
+        // alignItems: "center",
+        // justifyContent: "center",
+        // transform: [{ scale: 2 }]
+        //  flex: 1,
+    },
+    cardAtkbute:{
+        // flex: 3,
+        width: 70,
+        height: 70,
+        transform: [{ rotate: '90deg' }],
+    },
+    cardAtkbute_star: {
+        width: 40,
+        height: 40,
+        transform: [{ rotate: '90deg' }],
+        margin: 10
+    }
 });
