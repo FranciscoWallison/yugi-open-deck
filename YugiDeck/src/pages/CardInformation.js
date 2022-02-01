@@ -116,7 +116,7 @@ export default class CardInformation extends PureComponent {
                                 flex: 1,
                             }]}>
                                 <View style={styles.box_desc_card} >
-                                    <View style={styles.image_container_atk_def} >
+                                    <View  >
                                         <Image
                                             style={styles.cardAtkbute}
                                             source={require("../assets/atk.png")}
@@ -126,7 +126,7 @@ export default class CardInformation extends PureComponent {
                                         </Text>
                                     </View>
 
-                                    <View style={styles.image_container_atk_def} >
+                                    <View  >
                                         <Image
                                             style={styles.cardAtkbute}
                                             source={require("../assets/def.png")}
@@ -137,13 +137,19 @@ export default class CardInformation extends PureComponent {
                                     </View>                                        
                                 </View>
                                 <View style={{ flex: 3, backgroundColor: "blu",flexDirection: "column" }} >
-                                    <View style={styles.image_container_atk_def} >
+                                    <View  >
                                         <Image
                                             style={styles.cardAtkbute_star}
                                             source={require("../assets/star.png")}
                                         />
                                         <Text style={styles.text_desc_card_atk} >
                                             {this.state.cardInfor.level}
+                                        </Text>
+                                    </View>
+
+                                     <View style={styles.box} >
+                                        <Text style={styles.image_container_dec_type_race} >
+                                            {this.state.cardInfor.type} / {this.state.cardInfor.race}
                                         </Text>
                                     </View>
                                 </View>
@@ -240,7 +246,7 @@ export default class CardInformation extends PureComponent {
                      >
                     
                         
-                        <Text style={{flex: 1, fontSize: 15, marginTop: '30%', marginBottom: '60%', }}>
+                        <Text style={{flex: 1, fontSize: 15, marginTop: '30%', marginBottom: '35%', }}>
                             {this.state.cardInfor.desc}
                             asdasdasdasdasdadn abskdj anskljdn ajksnd jkasnd kjan
                             asdasdasdasdasdadn abskdj anskljdn ajksnd jkasnd kjan
@@ -389,7 +395,7 @@ const styles = StyleSheet.create({
         justifyContent: "center",
         transform: [{ scale: 2 }]
     },
-    image_container_atk_def:{
+    image_container_dec_type_race:{
         // flex: 1,
         // height: 30,
         // width: 30,
@@ -399,6 +405,12 @@ const styles = StyleSheet.create({
         // justifyContent: "center",
         // transform: [{ scale: 2 }]
         //  flex: 1,
+        fontWeight: "bold",
+        marginTop: '70%',
+        marginRight: '20%',
+        fontSize: 8,
+        transform: [{ rotate: '90deg' }],
+
     },
     cardAtkbute:{
         // flex: 3,
