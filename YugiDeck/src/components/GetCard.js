@@ -17,7 +17,7 @@ const GetCard = props => {
     //time double click
     let backCount = 0;
     let backTimer = 0;
-    let validIsSelect = selectCard(null).findIndex(x => x.id === card_information.id);
+    // let validIsSelect = selectCard(null).findIndex(x => x.id === card_information.id);
     let sourceImage =  card_information.id == 23771716
         ? require("../assets/cards_exemplos/small/23771716.jpg") 
         : require("../assets/cards_exemplos/small/6983839.jpg") 
@@ -44,7 +44,8 @@ const GetCard = props => {
             >
                 <Image
                     resizeMode="contain"
-                    style={ validIsSelect === -1 ? styles.cardOffSelect : styles.cardOnSelect }
+                    // style={ validIsSelect === -1 ? styles.cardOffSelect : styles.cardOnSelect }
+                    style={ styles.cardOffSelect}
                     // source={{
                     //     uri: card_information.card_images[0].image_url_small ,
                     // }}

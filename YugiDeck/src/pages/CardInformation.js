@@ -11,7 +11,7 @@ import {
 import { SvgUri } from 'react-native-svg';
 
 import Orientation from 'react-native-orientation';
-const sourceImage =  require("../assets/cards_exemplos/23771716.jpg") 
+const sourceImage =  require("../assets/cards_exemplos/6983839.jpg") 
 
 
 // https://yugioh.fandom.com/pt-br/wiki/Rise_to_Full_Height
@@ -27,87 +27,20 @@ const windowWidth = Dimensions.get('window').width;
 const windowHeight = Dimensions.get('window').height;
 const screen = Dimensions.get("screen");
 export default class CardInformation extends PureComponent {
+        static navigationOptions = {
+        header: null
+    }
     constructor(props) {
         super(props);
-
+// console.log( this.props.navigation.state.params, 'navigation');
         this.state = {
-            cardInfor: {
-                    "id":23771716,
-                    "name":"7 Colored Fish",
-                    "type":"Normal Monster",
-                    "desc":"A rare rainbow fish that has never been caught by mortal man.",
-                    "atk":1800,
-                    "def":800,
-                    "level":4,
-                    "race":"Fish",
-                    "attribute":"WATER",
-                    "card_sets":[
-                        {
-                            "set_name":"Gold Series",
-                            "set_code":"GLD1-EN001",
-                            "set_rarity":"Common",
-                            "set_rarity_code":"(C)",
-                            "set_price":"1.62"
-                        },
-                        {
-                            "set_name":"Metal Raiders",
-                            "set_code":"MRD-098",
-                            "set_rarity":"Common",
-                            "set_rarity_code":"(C)",
-                            "set_price":"2.62"
-                        },
-                        {
-                            "set_name":"Metal Raiders",
-                            "set_code":"MRD-E098",
-                            "set_rarity":"Common",
-                            "set_rarity_code":"(C)",
-                            "set_price":"7.66"
-                        },
-                        {
-                            "set_name":"Metal Raiders",
-                            "set_code":"MRD-EN098",
-                            "set_rarity":"Common",
-                            "set_rarity_code":"(C)",
-                            "set_price":"4.9"
-                        },
-                        {
-                            "set_name":"Starter Deck: Joey",
-                            "set_code":"SDJ-008",
-                            "set_rarity":"Common",
-                            "set_rarity_code":"(C)",
-                            "set_price":"2.46"
-                        },
-                        {
-                            "set_name":"Structure Deck: Fury from the Deep",
-                            "set_code":"SD4-EN002",
-                            "set_rarity":"Common",
-                            "set_rarity_code":"(C)",
-                            "set_price":"1.44"
-                        }
-                    ],
-                    "card_images":[
-                        {
-                            "id":23771716,
-                            "image_url":"https://storage.googleapis.com/ygoprodeck.com/pics/23771716.jpg",
-                            "image_url_small":"https://storage.googleapis.com/ygoprodeck.com/pics_small/23771716.jpg"
-                        }
-                    ],
-                    "card_prices":[
-                        {
-                            "cardmarket_price":"0.09",
-                            "tcgplayer_price":"0.35",
-                            "ebay_price":"2.99",
-                            "amazon_price":"0.99",
-                            "coolstuffinc_price":"0.49"
-                        }
-                    ]
-                }
+            cardInfor: this.props.navigation.state.params
         }
     }
 
     typeCardLoad = () => {
         this.state.cardInfor;
-
+console.log(this.state.cardInfor.type);
         switch (this.state.cardInfor.type) {
             case "Normal Monster":
                 return (
@@ -149,14 +82,62 @@ export default class CardInformation extends PureComponent {
 
                                      <View style={styles.box} >
                                         <Text style={styles.image_container_dec_type_race} >
+                                            {console.log('type / race',this.state.cardInfor.type,  this.state.cardInfor.race)}
                                             {this.state.cardInfor.type} / {this.state.cardInfor.race}
                                         </Text>
                                     </View>
                                 </View>
                         </View>
                     )
-                break;
-        
+            break;
+            case "XYZ Monster":
+                return (
+                        <View style={[, {
+                                flexDirection: "row",
+                                flex: 1,
+                            }]}>
+                                <View style={styles.box_desc_card} >
+                                    <View  >
+                                        <Image
+                                            style={styles.cardAtkbute}
+                                            source={require("../assets/atk.png")}
+                                        />
+                                        <Text style={styles.text_desc_card_atk} >
+                                            {this.state.cardInfor.atk}
+                                        </Text>
+                                    </View>
+
+                                    <View  >
+                                        <Image
+                                            style={styles.cardAtkbute}
+                                            source={require("../assets/def.png")}
+                                        />
+                                        <Text style={styles.text_desc_card_atk} >
+                                            {this.state.cardInfor.def}
+                                        </Text>
+                                    </View>                                        
+                                </View>
+                                <View style={{ flex: 3, backgroundColor: "blu",flexDirection: "column" }} >
+                                    <View  >
+                                        <Image
+                                            style={styles.cardAtkbute_star}
+                                            source={require("../assets/star.png")}
+                                        />
+                                        <Text style={styles.text_desc_card_atk} >
+                                            {this.state.cardInfor.level}
+                                        </Text>
+                                    </View>
+
+                                     <View style={styles.box} >
+                                        <Text style={styles.image_container_dec_type_race} >
+                                            {console.log('type / race',this.state.cardInfor.type,  this.state.cardInfor.race)}
+                                            {this.state.cardInfor.type} / {this.state.cardInfor.race}
+                                        </Text>
+                                    </View>
+                                </View>
+                        </View>
+                    )
+            break;
             default:
                     return (
                             <View style={[, {
@@ -244,32 +225,14 @@ export default class CardInformation extends PureComponent {
                      style={{transform: [{ rotate: '90deg' }],  marginHorizontal: '-50%', }}
                    
                      >
-                    
-                        
-                        <Text style={{flex: 1, fontSize: 15, marginTop: '30%', marginBottom: '35%', }}>
-                            {this.state.cardInfor.desc}
-                            asdasdasdasdasdadn abskdj anskljdn ajksnd jkasnd kjan
-                            asdasdasdasdasdadn abskdj anskljdn ajksnd jkasnd kjan
-                            asdasdasdasdasdadn abskdj anskljdn ajksnd jkasnd kjan
-                            asdasdasdasdasdadn abskdj anskljdn ajksnd jkasnd kjan
-                            asdasdasdasdasdadn abskdj anskljdn ajksnd jkasnd kjan
-                            asdasdasdasdasdadn abskdj anskljdn ajksnd jkasnd kjan
-                            asdasdasdasdasdadn abskdj anskljdn ajksnd jkasnd kjan
-                            asdasdasdasdasdadn abskdj anskljdn ajksnd jkasnd kjan
-                            asdasdasdasdasdadn abskdj anskljdn ajksnd jkasnd kjan
-                            asdasdasdasdasdadn abskdj anskljdn ajksnd jkasnd kjan
+                        <View
+                            style={{flex: 1, fontSize: 15, marginTop: '30%', marginBottom: '35%', }}
+                        >
+                            <Text style={{flex: 1, fontSize: 15,  marginBottom: '35%', }}>
+                                {this.state.cardInfor.desc}
+                            </Text>
+                        </View>
 
-                            asdasdasdasdasdadn abskdj anskljdn ajksnd jkasnd kjan
-                            asdasdasdasdasdadn abskdj anskljdn ajksnd jkasnd kjan
-                            asdasdasdasdasdadn abskdj anskljdn ajksnd jkasnd kjan
-                            asdasdasdasdasdadn abskdj anskljdn ajksnd jkasnd kjan
-
-                            asdasdasdasdasdadn abskdj anskljdn ajksnd jkasnd kjan
-                            asdasdasdasdasdadn abskdj anskljdn ajksnd jkasnd kjan
-                            111111111111111111
-                        </Text>
-
-              
                 </ScrollView>
                 
                 </View>
@@ -298,10 +261,10 @@ export default class CardInformation extends PureComponent {
                 </View>
             </View>
           </View>
-          {/* <View style={{ flex: 1 }} /> */}
+        
         </View>
         )
-    }// end of render
+    }
 
     componentDidMount() {
         Orientation.lockToPortrait();
@@ -345,30 +308,19 @@ const styles = StyleSheet.create({
         flex: 4,
         height: 100,
         width: 100,
-        // borderRadius: 5,
-        marginVertical: 100,
-        // alignItems: "center",
-        // justifyContent: "center",
-        transform: [{ scale: 2 }],
-        
+        marginVertical: 110,
+        transform: [{ scale: 2 }],        
     },
     box_desc_card: {
-        // marginVertical: 2,
-        // // flex: 4,
-        // alignItems: "stretch",
-        // transform: [{ scale: 2 }],
-        // flexDirection: 'column',
-        //   backgroundColor: 'black'
-
-        flex: 3, backgroundColor: "red", flexDirection: "column", 
+        flex: 3,
+        backgroundColor: "red",
+        flexDirection: "column",        
     },
     text_desc_card_atk: {
         fontSize: 20,
         transform: [{ rotate: '90deg' }],
         marginTop: '20%',
-        // flex: 3,
-        // backgroundColor: 'black'
-        // marginTop: '20%'
+        fontWeight: "bold",
     },
     text_desc_card_def: {
         fontSize: 20,
@@ -377,9 +329,8 @@ const styles = StyleSheet.create({
     },
     text: {
         fontSize: 10,
-        // flex: 1,
         fontWeight: "bold",
-        margin: '5%',
+        margin: '6%',
         color: "#000",
         textAlign: "center",
         transform: [{ rotate: '90deg' }],
@@ -387,8 +338,6 @@ const styles = StyleSheet.create({
     },
     image_container_att:{
         flex: 1,
-        // height: 70,
-        // width: 70,
         borderRadius: 5,
         marginVertical: 40,
         alignItems: "center",
@@ -396,24 +345,13 @@ const styles = StyleSheet.create({
         transform: [{ scale: 2 }]
     },
     image_container_dec_type_race:{
-        // flex: 1,
-        // height: 30,
-        // width: 30,
-        // borderRadius: 5,
-        // marginVertical: 40,
-        // alignItems: "center",
-        // justifyContent: "center",
-        // transform: [{ scale: 2 }]
-        //  flex: 1,
         fontWeight: "bold",
         marginTop: '70%',
         marginRight: '20%',
         fontSize: 8,
         transform: [{ rotate: '90deg' }],
-
     },
     cardAtkbute:{
-        // flex: 3,
         width: 70,
         height: 70,
         transform: [{ rotate: '90deg' }],

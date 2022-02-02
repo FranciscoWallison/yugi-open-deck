@@ -10,14 +10,12 @@ import InitiApp from './pages/InitiApp';
 import CardInformation from './pages/CardInformation';
 
 
-let initRota = 'CardInformation';
+let initRota = 'InitiApp';
 
 //Barra de GoBack
 const stackNav = createStackNavigator({
     InitiApp,
     CardInformation
-//   MenuInicial,
-//   Formulario
 });
 
 export default (Routes = createAppContainer(
@@ -25,8 +23,6 @@ export default (Routes = createAppContainer(
     {
       CardInformation: CardInformation,
       InitiApp: InitiApp,
-    //   Menu: MenuInicial,
-    //   Formulario: Formulario,
       stackNav,
     },
     {

@@ -9,12 +9,16 @@ import ButtonFloating from '../components/ButtonFloating';
 
 
 export default class InitiApp extends Component {
+  static navigationOptions = {
+    header: null
+  }
+
   constructor(props) {
     super(props);
     this.state = {
       visibleBtn: false,
       listaDeCartas: [
-        // card 1
+        // card XYZ Monster
         {
           "id": 6983839,
           "name": "Tornado Dragon",
@@ -65,7 +69,7 @@ export default class InitiApp extends Component {
             }
           ]
         },
-        // segundo exemplo
+        // segundo Normal Monster
         {
           "id":23771716,
           "name":"7 Colored Fish",
@@ -144,27 +148,31 @@ export default class InitiApp extends Component {
   }
 
   selectCard = (e) => {
-    if(e != null){
-      let id = e.id;
-      // add to list
-      const index = this.state.listaDeCartasSelecionadas.findIndex(x => x.id === id); 
+    // if(e != null){
+    //   let id = e.id;
+    //   // add to list
+    //   const index = this.state.listaDeCartasSelecionadas.findIndex(x => x.id === id); 
 
-      if (index > -1) {
-        this.state.listaDeCartasSelecionadas.splice(index, 1); 
-      }else{
-        this.state.listaDeCartasSelecionadas.push(e);
-        this.setState({visibleBtn: true});
-      }
+    //   if (index > -1) {
+    //     this.state.listaDeCartasSelecionadas.splice(index, 1); 
+    //   }else{
+    //     this.state.listaDeCartasSelecionadas.push(e);
+    //     this.setState({visibleBtn: true});
+    //   }
 
-      if(this.state.listaDeCartasSelecionadas.length == 0){
-        this.setState({visibleBtn: false});
-      }
+    //   if(this.state.listaDeCartasSelecionadas.length == 0){
+    //     this.setState({visibleBtn: false});
+    //   }
       
-      this.setState({
-        listaDeCartasSelecionadas: this.state.listaDeCartasSelecionadas
-      })    
-    }
-    return this.state.listaDeCartasSelecionadas;
+    //   this.setState({
+    //     listaDeCartasSelecionadas: this.state.listaDeCartasSelecionadas
+    //   })    
+    // }
+
+
+    // return this.state.listaDeCartasSelecionadas;
+
+    this.props.navigation.navigate('CardInformation', e);
   }
 
   selectCardInformation = (e) => {
