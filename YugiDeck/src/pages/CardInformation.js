@@ -8,7 +8,7 @@ import {
     ScrollView,
     StatusBar 
 } from 'react-native';
-import { SvgUri } from 'react-native-svg';
+import TypeDesc from '../components/card/TypeDesc';
 
 import Orientation from 'react-native-orientation';
 const sourceImage =  require("../assets/cards_exemplos/6983839.jpg") 
@@ -241,7 +241,7 @@ console.log(this.state.cardInfor.type);
                 </View>
 
                 <View style={{ flex: 2, backgroundColor: "darkorange" }} >
-                    {this.typeCardLoad()}
+                    <TypeDesc cardData={this.state.cardInfor} />
                 </View>
                 <View style={{ flex: 1, backgroundColor: "red", flexDirection: 'column',  }} >
    
