@@ -18,9 +18,14 @@ const GetCard = props => {
     let backCount = 0;
     let backTimer = 0;
     // let validIsSelect = selectCard(null).findIndex(x => x.id === card_information.id);
-    let sourceImage =  card_information.id == 23771716
-        ? require("../assets/cards_exemplos/small/23771716.jpg") 
-        : require("../assets/cards_exemplos/small/6983839.jpg") 
+    let sourceImage = ''; 
+    if (card_information.id == 23771716){
+        sourceImage = require("../assets/cards_exemplos/small/23771716.jpg");
+    }else if (card_information.id == 6983839){
+        sourceImage = require("../assets/cards_exemplos/small/6983839.jpg");
+    }else if (card_information.id == 94192409){
+        sourceImage = require("../assets/cards_exemplos/small/94192409.jpg");
+    }
 
     return (
         <View
