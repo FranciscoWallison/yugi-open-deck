@@ -143,7 +143,7 @@ export default class InitiApp extends Component {
         },
         // card armadilha 
         {
-          "id":94192409,
+            "id":94192409,
             "name":"Compulsory Evacuation Device",
             "type":"Trap Card",
             "desc":"Target 1 monster on the field; return that target to the hand.",

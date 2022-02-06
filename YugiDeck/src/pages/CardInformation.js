@@ -11,7 +11,7 @@ import {
 import TypeDesc from '../components/card/TypeDesc';
 
 import Orientation from 'react-native-orientation';
-const sourceImage =  require("../assets/cards_exemplos/6983839.jpg") 
+
 
 
 // https://yugioh.fandom.com/pt-br/wiki/Rise_to_Full_Height
@@ -36,123 +36,6 @@ export default class CardInformation extends PureComponent {
         this.state = {
             cardInfor: this.props.navigation.state.params
         }
-    }
-
-    typeCardLoad = () => {
-        this.state.cardInfor;
-console.log(this.state.cardInfor.type);
-        switch (this.state.cardInfor.type) {
-            case "Normal Monster":
-                return (
-                        <View style={[, {
-                                flexDirection: "row",
-                                flex: 1,
-                            }]}>
-                                <View style={styles.box_desc_card} >
-                                    <View  >
-                                        <Image
-                                            style={styles.cardAtkbute}
-                                            source={require("../assets/atk.png")}
-                                        />
-                                        <Text style={styles.text_desc_card_atk} >
-                                            {this.state.cardInfor.atk}
-                                        </Text>
-                                    </View>
-
-                                    <View  >
-                                        <Image
-                                            style={styles.cardAtkbute}
-                                            source={require("../assets/def.png")}
-                                        />
-                                        <Text style={styles.text_desc_card_atk} >
-                                            {this.state.cardInfor.def}
-                                        </Text>
-                                    </View>                                        
-                                </View>
-                                <View style={{ flex: 3, backgroundColor: "blu",flexDirection: "column" }} >
-                                    <View  >
-                                        <Image
-                                            style={styles.cardAtkbute_star}
-                                            source={require("../assets/star.png")}
-                                        />
-                                        <Text style={styles.text_desc_card_atk} >
-                                            {this.state.cardInfor.level}
-                                        </Text>
-                                    </View>
-
-                                     <View style={styles.box} >
-                                        <Text style={styles.image_container_dec_type_race} >
-                                            {console.log('type / race',this.state.cardInfor.type,  this.state.cardInfor.race)}
-                                            {this.state.cardInfor.type} / {this.state.cardInfor.race}
-                                        </Text>
-                                    </View>
-                                </View>
-                        </View>
-                    )
-            break;
-            case "XYZ Monster":
-                return (
-                        <View style={[, {
-                                flexDirection: "row",
-                                flex: 1,
-                            }]}>
-                                <View style={styles.box_desc_card} >
-                                    <View  >
-                                        <Image
-                                            style={styles.cardAtkbute}
-                                            source={require("../assets/atk.png")}
-                                        />
-                                        <Text style={styles.text_desc_card_atk} >
-                                            {this.state.cardInfor.atk}
-                                        </Text>
-                                    </View>
-
-                                    <View  >
-                                        <Image
-                                            style={styles.cardAtkbute}
-                                            source={require("../assets/def.png")}
-                                        />
-                                        <Text style={styles.text_desc_card_atk} >
-                                            {this.state.cardInfor.def}
-                                        </Text>
-                                    </View>                                        
-                                </View>
-                                <View style={{ flex: 3, backgroundColor: "blu",flexDirection: "column" }} >
-                                    <View  >
-                                        <Image
-                                            style={styles.cardAtkbute_star}
-                                            source={require("../assets/star.png")}
-                                        />
-                                        <Text style={styles.text_desc_card_atk} >
-                                            {this.state.cardInfor.level}
-                                        </Text>
-                                    </View>
-
-                                     <View style={styles.box} >
-                                        <Text style={styles.image_container_dec_type_race} >
-                                            {console.log('type / race',this.state.cardInfor.type,  this.state.cardInfor.race)}
-                                            {this.state.cardInfor.type} / {this.state.cardInfor.race}
-                                        </Text>
-                                    </View>
-                                </View>
-                        </View>
-                    )
-            break;
-            default:
-                    return (
-                            <View style={[, {
-                            // Try setting `flexDirection` to `"row"`.
-                                flexDirection: "row",
-                                flex: 1,
-                                // padding: 20,
-                            }]}>
-                                <View style={{ flex: 3, backgroundColor: "red" }} />
-                                <View style={{ flex: 3, backgroundColor: "green" }} />
-                            </View>
-                    )
-                break;
-        }
-        
     }
 
     loadAttribute = (attribute) =>  {
@@ -196,11 +79,23 @@ console.log(this.state.cardInfor.type);
     }
 
     render() {
+
+        let sourceImage = require("../assets/cards_exemplos/6983839.jpg");
+
+        switch (this.state.cardInfor.Id) {
+            case 94192409:
+                sourceImage = require("../assets/cards_exemplos/94192409.jpg");
+                break;
+            case 23771716:
+                sourceImage = require("../assets/cards_exemplos/23771716.jpg");
+                break;
+        
+            default:
+                break;
+        }
+
         return (
         <View style={styles.container}>
-
-        
-
           <View style={{ flex: 3 }} >
                 <Image
                     resizeMode="contain"
