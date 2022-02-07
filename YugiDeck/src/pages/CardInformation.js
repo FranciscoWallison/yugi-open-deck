@@ -113,15 +113,13 @@ export default class CardInformation extends PureComponent {
 
 
                 <View style={{ flexDirection: 'column',   }}  > 
-                  
-                       <View style={{  }}  /> 
                    <ScrollView
   
-                     style={{transform: [{ rotate: '90deg' }],  marginHorizontal: '-50%', }}
+                     style={{transform: [{ rotate: '90deg' }],marginTop: 100, marginBottom: 90,   marginHorizontal: '-32%', }}
                    
                      >
                         <View
-                            style={{flex: 1, fontSize: 15, marginTop: '30%', marginBottom: '35%', }}
+                            style={{flex: 1, fontSize: 15, }}
                         >
                             <Text style={{flex: 1, fontSize: 15,  marginBottom: '35%', }}>
                                 {this.state.cardInfor.desc}
