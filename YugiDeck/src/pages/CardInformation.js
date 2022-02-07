@@ -121,7 +121,7 @@ export default class CardInformation extends PureComponent {
                         <View
                             style={{flex: 1, fontSize: 15, }}
                         >
-                            <Text style={{flex: 1, fontSize: 15,  marginBottom: '35%', }}>
+                            <Text style={{flex: 1, fontSize: 15,  marginBottom: '25%', }}>
                                 {this.state.cardInfor.desc}
                             </Text>
                         </View>
