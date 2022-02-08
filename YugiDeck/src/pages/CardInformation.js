@@ -39,6 +39,9 @@ export default class CardInformation extends PureComponent {
     }
 
     loadAttribute = (attribute) =>  {
+
+        console.log('loadAttribute', attributes);
+
         // https://ms.yugipedia.com//f/f0/WATER.png
         let url_image =  'https://ms.yugipedia.com/';
         switch (attribute) {
@@ -71,9 +74,11 @@ export default class CardInformation extends PureComponent {
                 break;
         
             default:
-                url_image = ''
+                url_image = require("../assets/uteis/attribute/LIGHT.png"); 
                 break;
         }
+
+console.log('url_image', url_image);
 
         return url_image;
     }
@@ -110,26 +115,27 @@ export default class CardInformation extends PureComponent {
             <View style={styles.container_information}>
                 <View style={{ flex: 3, backgroundColor: "green", flexDirection: 'column',  marginRight:'1%', marginLeft: '-1%' }} >
                     <View style={{ backgroundColor: "orange",   flex: 1 }} >
+                        <View style={{ flexDirection: 'column',   }}  > 
+                            <ScrollView
+                                style={{transform: [{ rotate: '90deg' }],marginTop: 100, marginBottom: 90,   marginHorizontal: '-32%', }}
+                            >
+                                    <View
+                                        style={{flex: 1, fontSize: 15, marginBottom: '25%', }}
+                                    >
+                                    <View
+                                         style={{flex: 1, fontSize: 15, marginBottom: '25%', }}
+                                    >
+                                        <Text style={{fontSize: 15,}}>
+                                            {this.state.cardInfor.desc}
+                                        </Text>
+                                    </View>
+                                       
+                                    </View>
 
-
-                <View style={{ flexDirection: 'column',   }}  > 
-                   <ScrollView
-  
-                     style={{transform: [{ rotate: '90deg' }],marginTop: 100, marginBottom: 90,   marginHorizontal: '-32%', }}
-                   
-                     >
-                        <View
-                            style={{flex: 1, fontSize: 15, }}
-                        >
-                            <Text style={{flex: 1, fontSize: 15,  marginBottom: '25%', }}>
-                                {this.state.cardInfor.desc}
-                            </Text>
+                            </ScrollView>
+                        
                         </View>
-
-                </ScrollView>
-                
-                </View>
-            </View>
+                    </View>
                 
                 </View>
 
