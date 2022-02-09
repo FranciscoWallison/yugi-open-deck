@@ -38,13 +38,10 @@ export default class CardInformation extends PureComponent {
         }
     }
 
-    loadAttribute = (attribute) =>  {
+    loadAttribute = (cardInfo) =>  {
 
-        console.log('loadAttribute', attributes);
-
-        // https://ms.yugipedia.com//f/f0/WATER.png
-        let url_image =  'https://ms.yugipedia.com/';
-        switch (attribute) {
+        let url_image =  '';
+        switch (cardInfo.attribute) {
             case 'LIGHT':
                 url_image = require("../assets/uteis/attribute/LIGHT.png"); 
                 break;
@@ -65,20 +62,14 @@ export default class CardInformation extends PureComponent {
                 break;
             case 'DIVINE':
                 url_image = require("../assets/uteis/attribute/DIVINE.png"); 
-                break;;
-            case 'SPELL':
-                url_image = require("../assets/uteis/attribute/SPELL.png"); 
-                break;;
-            case 'TRAP':
-                url_image = require("../assets/uteis/attribute/TRAP.png"); 
-                break;
-        
+                break;        
             default:
-                url_image = require("../assets/uteis/attribute/LIGHT.png"); 
+                if(cardInfo.type.includes('Spell') )
+                    url_image = require("../assets/uteis/attribute/SPELL.png");
+                if(cardInfo.type.includes('Trap') )
+                    url_image = require("../assets/uteis/attribute/TRAP.png"); 
                 break;
         }
-
-console.log('url_image', url_image);
 
         return url_image;
     }
@@ -154,7 +145,7 @@ console.log('url_image', url_image);
                           <Image
                                 resizeMode="contain"
                                 style={styles.cardAttribute}
-                                source={this.loadAttribute(this.state.cardInfor.attribute)}
+                                source={this.loadAttribute(this.state.cardInfor)}
                             />
                     </View>
                 </View>
