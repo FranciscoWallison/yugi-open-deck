@@ -196,15 +196,15 @@ const styles = StyleSheet.create({
     },
     box: {
         flex: 4,
-        height: 100,
-        width: 100,
         marginVertical: 110,
-        transform: [{ scale: 2 }],        
+        transform: [{ scale: 2 }],
+        width: 200,
+        height: "100%",
     },
     box_desc_card: {
         flex: 3,
         backgroundColor: "red",
-        flexDirection: "column",        
+        flexDirection: "column",
     },
     text_desc_card_atk: {
         fontSize: 20,
@@ -218,13 +218,16 @@ const styles = StyleSheet.create({
         marginTop: '20%',
     },
     text: {
-        fontSize: 10,
+        fontSize: 9,
         fontWeight: "bold",
-        margin: '6%',
         color: "#000",
         textAlign: "center",
         transform: [{ rotate: '90deg' }],
-        marginRight: '20%'
+        // backgroundColor: "black",
+        //  width: "100%",
+        // height: "100%",
+        marginRight: 60,
+        marginTop: 25
     },
     image_container_att:{
         flex: 1,
