@@ -76,19 +76,13 @@ export default class CardInformation extends PureComponent {
 
     render() {
 
-        let sourceImage = require("../assets/cards_exemplos/6983839.jpg");
+        let sourceImage = 
+        this.state.cardInfor.id === 6983839 ? require("../assets/cards_exemplos/6983839.jpg")
+        : this.state.cardInfor.id === 94192409 ? require("../assets/cards_exemplos/94192409.jpg")
+        : this.state.cardInfor.id === 23771716 ? require("../assets/cards_exemplos/23771716.jpg") 
+        : require("../assets/cards_exemplos/6983839.jpg");
 
-        switch (this.state.cardInfor.Id) {
-            case 94192409:
-                sourceImage = require("../assets/cards_exemplos/94192409.jpg");
-                break;
-            case 23771716:
-                sourceImage = require("../assets/cards_exemplos/23771716.jpg");
-                break;
-        
-            default:
-                break;
-        }
+
 
         return (
         <View style={styles.container}>
