@@ -81,9 +81,7 @@ export default class CardInformation extends PureComponent {
         : this.state.cardInfor.id === 94192409 ? require("../assets/cards_exemplos/94192409.jpg")
         : this.state.cardInfor.id === 23771716 ? require("../assets/cards_exemplos/23771716.jpg") 
         : require("../assets/cards_exemplos/6983839.jpg");
-
-
-
+        
         return (
         <View style={styles.container}>
           <View style={{ flex: 3 }} >
