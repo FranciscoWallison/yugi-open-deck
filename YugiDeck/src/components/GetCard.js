@@ -25,6 +25,8 @@ const GetCard = props => {
         sourceImage = require("../assets/cards_exemplos/small/6983839.jpg");
     }else if (card_information.id == 94192409){
         sourceImage = require("../assets/cards_exemplos/small/94192409.jpg");
+    }else if (card_information.id == 53129443){
+        sourceImage = require("../assets/cards_exemplos/small/53129443.jpg");
     }
 
     return (

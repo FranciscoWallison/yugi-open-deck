@@ -589,7 +589,8 @@ export default class InitiApp extends Component {
           "card_images":
               [
                   {
-                      "id":53129443,"image_url":"https://storage.googleapis.com/ygoprodeck.com/pics/53129443.jpg",
+                      "id":53129443,
+                      "image_url":"https://storage.googleapis.com/ygoprodeck.com/pics/53129443.jpg",
                       "image_url_small":"https://storage.googleapis.com/ygoprodeck.com/pics_small/53129443.jpg"
                   }
               ],
