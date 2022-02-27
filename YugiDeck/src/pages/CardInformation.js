@@ -79,7 +79,8 @@ export default class CardInformation extends PureComponent {
         let sourceImage = 
         this.state.cardInfor.id === 6983839 ? require("../assets/cards_exemplos/6983839.jpg")
         : this.state.cardInfor.id === 94192409 ? require("../assets/cards_exemplos/94192409.jpg")
-        : this.state.cardInfor.id === 23771716 ? require("../assets/cards_exemplos/23771716.jpg") 
+        : this.state.cardInfor.id === 23771716 ? require("../assets/cards_exemplos/23771716.jpg")
+        : this.state.cardInfor.id === 53129443 ? require("../assets/cards_exemplos/53129443.jpg") 
         : require("../assets/cards_exemplos/6983839.jpg");
         
         return (
