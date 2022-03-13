@@ -4,7 +4,7 @@ export default {
     // backgroundColor: "#dcda48",
     // flexBasis: 0,
     // flexGrow: 1,
-    // margin: 4,
+     margin: 4,
     // padding: 20
   },
   itemEmpty: {

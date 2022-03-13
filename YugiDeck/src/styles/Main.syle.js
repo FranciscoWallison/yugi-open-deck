@@ -10,6 +10,7 @@ export default {
         flex: 1,
         backgroundColor: "#343461",
         paddingVertical: 20,
+        paddingHorizontal: 20,
         
     }
 }

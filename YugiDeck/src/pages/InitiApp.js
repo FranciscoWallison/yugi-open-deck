@@ -678,7 +678,7 @@ export default class InitiApp extends Component {
           {/* <Card loading={true} message="Carregando" /> */}
           <ListCards
             card_data={this.state.listaDeCartas}
-            card_columns={3}
+            card_columns={4}
             selectCard={this.selectCard.bind(this)}
             selectCardInformation={this.selectCardInformation.bind(this)}
           />          
